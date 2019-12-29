@@ -6,8 +6,16 @@ My awesome slide extractor algorithm
 5.	Save the graphics buffer to a file
 6.	Close the PowerPoint file
 7.	Exit program
+
 Use Apache POI to work with the PowerPoint files. In particular, we’ll need to use:
 org.apache.poi.openxml4j.opc.OPCPackage;
 org.apache.poi.xslf.usermodel.XSLFSlide
+
+References:
+1. https://poi.apache.org/apidocs/4.1/
+2. http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xslf/usermodel/PPTX2SVG.txt
+3. https://poi.apache.org/apidocs/dev/org/apache/poi/xslf/usermodel/XSLFSlide.html
+4. https://stackoverflow.com/questions/8202253/saving-a-java-2d-graphics-image-as-png-file
+5. https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html#write-java.awt.image.RenderedImage-java.lang.String-java.io.File-
 
 
