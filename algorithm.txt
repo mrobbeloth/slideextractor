@@ -1,0 +1,13 @@
+My awesome slide extractor algorithm
+1.	Read in PowerPoint filename
+2.	Open the PowerPoint file
+3.	Extract each slide and report content
+4.	Render each slide into a graphics buffer
+5.	Save the graphics buffer to a file
+6.	Close the PowerPoint file
+7.	Exit program
+Use Apache POI to work with the PowerPoint files. In particular, we’ll need to use:
+org.apache.poi.openxml4j.opc.OPCPackage;
+org.apache.poi.xslf.usermodel.XSLFSlide
+
+
