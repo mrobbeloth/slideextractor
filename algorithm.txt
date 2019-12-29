@@ -1,6 +1,9 @@
 My awesome slide extractor algorithm
-1.	Read in PowerPoint filename
+1.      Look at the number of arguments
+        1.1 If there are no arguments, print the usage statement
+	1.2 If there is at least one argument, try to read in PowerPoint filename
 2.	Open the PowerPoint file
+        2.1  If opening the file fails. print the error and usage statement
 3.	Extract each slide and report content
 4.	Render each slide into a graphics buffer
 5.	Save the graphics buffer to a file
