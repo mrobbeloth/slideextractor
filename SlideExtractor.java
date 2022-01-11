@@ -62,7 +62,7 @@ public class SlideExtractor {
 			javax.imageio.ImageIO.write(img, output_image_format, out);
 			out.close();
 
-			idx++;
+			idx = idx+1;
 		}
 
 		is.close();
