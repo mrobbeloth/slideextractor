@@ -2,6 +2,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.IllegalArgumentException;
 import java.io.File;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
 import org.apache.poi.xslf.usermodel.XSLFSlide;
@@ -15,10 +16,10 @@ import java.awt.geom.*;
 
 public class SlideExtractor {
 	public static void usage() {
-		System.out.println("Usage: slideextractor <filename>");
+		System.out.println("Usage: slideextractor <filename> <output_image_format>");
 	}
 
-	public static void main (String[] args) throws FileNotFoundException, IOException {
+	public static void main (String[] args) throws FileNotFoundException, IOException, IllegalArgumentException {
  		if (args.length == 0) {
 			usage();
 			return;
@@ -36,6 +37,15 @@ public class SlideExtractor {
 		Dimension pgsize = pptx.getPageSize();
 
 		int idx = 1;
+        String output_image_format = "png";		
+        if (args.length == 2) {
+        	output_image_format = args[1].toLowerCase();
+        }
+		
+		if (!output_image_format.equals("png") && !output_image_format.equals("jpeg") && !output_image_format.equals("gif")) {
+			throw new IllegalArgumentException("Invalid output format" + output_image_format);
+		}
+
 		for (XSLFSlide slide : pptx.getSlides()) {
 			BufferedImage img = new BufferedImage(pgsize.width, pgsize.height, BufferedImage.TYPE_INT_RGB);
 			Graphics2D graphics = img.createGraphics();
@@ -48,8 +58,8 @@ public class SlideExtractor {
 			slide.draw(graphics);
 			
 			//save the output
-			FileOutputStream out = new FileOutputStream("slide-" + idx + ".png");
-			javax.imageio.ImageIO.write(img, "png", out);
+			FileOutputStream out = new FileOutputStream("slide-" + idx + "." + output_image_format);
+			javax.imageio.ImageIO.write(img, output_image_format, out);
 			out.close();
 
 			idx++;
