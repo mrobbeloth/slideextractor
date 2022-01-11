@@ -58,6 +58,7 @@ public class SlideExtractor {
 			slide.draw(graphics);
 			
 			//save the output
+			system.out.println("Saving slide" + idx + "...");
 			FileOutputStream out = new FileOutputStream("slide-" + idx + "." + output_image_format);
 			javax.imageio.ImageIO.write(img, output_image_format, out);
 			out.close();
