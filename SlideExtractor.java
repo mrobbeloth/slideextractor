@@ -46,6 +46,7 @@ public class SlideExtractor {
 				throw new IllegalArgumentException("Invalid output format" + output_image_format);
 			}
 
+
 			for (XSLFSlide slide : pptx.getSlides()) {
 				BufferedImage img = new BufferedImage(pgsize.width, pgsize.height, BufferedImage.TYPE_INT_RGB);
 				Graphics2D graphics = img.createGraphics();
@@ -58,6 +59,7 @@ public class SlideExtractor {
 				slide.draw(graphics);
 
 				//save the output
+        System.out.println("Saving slide" + idx + "...");
 				FileOutputStream out = new FileOutputStream("slide-" + idx + "." + output_image_format);
 				javax.imageio.ImageIO.write(img, output_image_format, out);
 				out.close();
