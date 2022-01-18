@@ -37,12 +37,12 @@ public class SlideExtractor {
 		Dimension pgsize = pptx.getPageSize();
 
 		int idx = 1;
-        String output_image_format = "png";		
+        String output_image_format = "jpeg";		
         if (args.length == 2) {
         	output_image_format = args[1].toLowerCase();
         }
 		
-		if (!output_image_format.equals("png") && !output_image_format.equals("jpeg") && !output_image_format.equals("gif")) {
+		if (!output_image_format.equals("png") && !output_image_format.equals("jpeg")  && !output_image_format.equals("jpg") && !output_image_format.equals("gif")) {
 			throw new IllegalArgumentException("Invalid output format" + output_image_format);
 		}
 
