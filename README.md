@@ -1,4 +1,4 @@
-This project is for demonstrating various software engineering topics in CSC-3024, Software and System Engineering. 
+This project is for demonstrating various software engineering topics in a Software and Systems Engineering course. 
 It is not meant to be a production quality system.
 
 Usage example:<br/>
